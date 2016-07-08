@@ -181,7 +181,7 @@ public abstract class AbstractGeneratorMojo
             return;
         }
 
-        if ( project.getArtifactId().toLowerCase().startsWith( "maven-" )
+            if ( project.getArtifactId().toLowerCase().startsWith( "maven-" )
             && project.getArtifactId().toLowerCase().endsWith( "-plugin" ) && !"org.apache.maven.plugins".equals(
             project.getGroupId() ) )
         {

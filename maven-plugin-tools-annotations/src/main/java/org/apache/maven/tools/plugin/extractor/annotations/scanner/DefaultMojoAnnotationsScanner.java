@@ -131,7 +131,7 @@ public class DefaultMojoAnnotationsScanner
             for ( ZipEntry zipEntry = archiveStream.getNextEntry(); zipEntry != null;
                   zipEntry = archiveStream.getNextEntry() )
             {
-                if ( !zipEntry.getName().endsWith( ".class" ) )
+                    if ( !zipEntry.getName().endsWith( ".class" ) )
                 {
                     continue;
                 }

@@ -220,12 +220,12 @@
       <dependency>
         <groupId>org.ow2.asm</groupId>
         <artifactId>asm</artifactId>
-        <version>5.0.2</version>
+        <version>6.0_ALPHA</version>
       </dependency>
       <dependency>
         <groupId>org.ow2.asm</groupId>
         <artifactId>asm-commons</artifactId>
-        <version>5.0.2</version>
+        <version>6.0_ALPHA</version>
       </dependency>
 
       <dependency>
@@ -281,8 +281,36 @@
             </execution>
           </executions>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <executions>
+            <execution>
+              <id>enforce-bytecode-version</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <phase>none</phase>
+              <configuration>
+                <rules>
+                  <enforceBytecodeVersion>
+                    <maxJdkVersion>1.5</maxJdkVersion>
+                    <excludes>
+                      <exclude>org.ow2.asm:asm</exclude>
+                      <exclude>org.ow2.asm:asm-tree</exclude>
+                      <exclude>org.ow2.asm:asm-commons</exclude>
+                    </excludes>
+                  </enforceBytecodeVersion>
+                  <requireSameVersions />
+                </rules>
+                <fail>true</fail>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
+
   </build>
 
   <profiles>

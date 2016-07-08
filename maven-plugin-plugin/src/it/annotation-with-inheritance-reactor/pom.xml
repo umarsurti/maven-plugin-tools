@@ -35,7 +35,7 @@ under the License.
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <plexusCompilerVersion>1.8.6</plexusCompilerVersion>
+    <plexusCompilerVersion>2.8-jigsaw-SNAPSHOT</plexusCompilerVersion>
   </properties>
 
   <dependencies>

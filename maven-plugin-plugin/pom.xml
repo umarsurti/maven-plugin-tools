@@ -256,17 +256,24 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
+        <version>3.4</version>
         <!-- will use previous maven-plugin-plugin release to build current maven-plugin-plugin as configured in parent -->
         <executions>
           <execution>
             <id>default-descriptor</id>
             <phase>process-classes</phase>
+
+            <configuration>
+              <skipDescriptor>true</skipDescriptor>
+              <skipErrorNoDescriptorsFound>false</skipErrorNoDescriptorsFound>
+            </configuration>
           </execution>
           <execution>
             <id>generated-helpmojo</id>
             <goals>
               <goal>helpmojo</goal>
             </goals>
+            <phase>none</phase>
             <configuration>
               <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
             </configuration>
@@ -281,7 +288,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
-        <version>3.3</version><!-- cannot use ${mavenPluginToolsVersion} property because release plugin would try to update -->
+        <version>3.4</version><!-- cannot use ${mavenPluginToolsVersion} property because release plugin would try to update -->
         <reportSets>
           <reportSet>
             <reports>
@@ -390,6 +397,7 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-plugin-plugin</artifactId>
+            <version>3.4</version>
             <configuration>
               <!-- see https://issues.apache.org/jira/browse/MNG-5346 -->
               <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
